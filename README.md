@@ -1,50 +1,32 @@
-# Python Basics
+# Practice Python Projects
 
-This repository contains simple Python programs that demonstrate basic Python concepts.
-The project is intended for learning and practice.
+This repository contains simple Python programs that demonstrate **basic Python concepts**.  
+The project is intended for **learning and practice**.
 
-## Files description
+---
 
-1. **hello.py**  
-   Prints "Hello, world!" to the console.
+## Repository Structure
 
-2. **variables.py**  
-   Demonstrates:
-   - Variable assignment
-   - Dynamic typing
-   - Multiple assignment
-   - List unpacking
-   - Global variables
+- **Practice1** – Python basics:
+  - `hello_world.py` – prints "Hello, world!"  
+  - `variables.py` – demonstrates variables, multiple assignment, unpacking, and global variables  
+  - `data_types.py` – shows Python built-in data types  
+  - `numbers.py` – type conversion, `type()`, random numbers  
+  - `casting.py` – examples of casting values to float and string  
+  - `strmethod.py` – string methods: `upper()`, `lower()`, `split()`, `join()`, etc.
 
-3. **data_types.py**  
-   Shows Python built-in data types such as:
-   int, float, complex, list, tuple, dict, set, bool, bytes, and None.
+- **Practice2** – Python control flow:
+  - **Boolean** – boolean values, operators, comparisons  
+  - **If/Else** – if statements, if-elif-else, short-hand if  
+  - **Loops** – for loops, while loops, `break` and `continue` examples
 
-4. **numbers.py**  
-   Demonstrates:
-   - Type conversion between numeric types
-   - Using `type()` function
-   - Generating random numbers with `random` module
+---
 
-5. **casting.py**  
-   Examples of casting values to `float` and `string`.
+## How to Run
 
-6. **strings.py**  
-   Demonstrates:
-   - String indexing and slicing
-   - String length
-   - Looping through strings
-   - Checking substring existence
-
-7. **strmethod.py**  
-   Demonstrates common string methods such as:
-   upper(), lower(), replace(), split(), join(), strip(),
-   f-strings, and validation methods.
-
-## How to run
-
-Make sure Python is installed.  
-Run any file using:
+1. Make sure **Python 3.x** is installed.
+2. Open terminal/command prompt and navigate to the folder.
+3. Run any Python file using:
 
 ```bash
 python filename.py
