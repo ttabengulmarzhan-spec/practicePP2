@@ -1,15 +1,16 @@
-# enumerate
-names = ["Alice","Bob","Charlie"]
-for i, name in enumerate(names):
-    print(i, name)
+nums = [1,2,3,4,5]
 
-# zip
-ages = [20,21,22]
-for name, age in zip(names, ages):
-    print(name, age)
+squared = list(map(lambda x: x*x, nums))
+even = list(filter(lambda x: x%2==0, nums))
 
-# type conversion
-a = "123"
-print(type(a))
-b = int(a)
-print(type(b))
+print(squared)
+print(even)
+
+
+from functools import reduce
+
+nums = [1,2,3,4]
+
+result = reduce(lambda x,y: x+y, nums)
+
+print(result)
