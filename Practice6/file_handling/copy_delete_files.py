@@ -1,8 +1,9 @@
-with open("lyrics.txt","a") as f:
+with open("/Users/gulmarzantaben/tasks/Practice6/file_handling/lyrics.txt", "a") as f:
     f.write("But nothing better than songs by Kairat Nurtas.\n")
 
-with open("lyrics.txt","r") as f:
-    f.read()
+with open("/Users/gulmarzantaben/tasks/Practice6/file_handling/lyrics.txt", "r") as f:
+    content = f.read()
+    print(content)
 
 import shutil
 
