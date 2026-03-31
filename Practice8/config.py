@@ -1,6 +1,6 @@
-DB_CONFIG = {
+config = {
     "host": "localhost",
     "database": "phonebook_db",
     "user": "postgres",
-    "password": "k12345r"
+    "password": ""   
 }

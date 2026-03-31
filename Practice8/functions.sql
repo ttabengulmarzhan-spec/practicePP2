@@ -1,5 +1,5 @@
--- Function: search by pattern
-CREATE OR REPLACE FUNCTION search_contacts(p text)
+-- 🔍 Поиск по паттерну
+CREATE OR REPLACE FUNCTION search_contacts(p TEXT)
 RETURNS TABLE(name VARCHAR, phone VARCHAR) AS $$
 BEGIN
     RETURN QUERY
@@ -11,12 +11,14 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Function: pagination
+-- 📄 Пагинация
 CREATE OR REPLACE FUNCTION get_contacts_paginated(lim INT, off INT)
-RETURNS TABLE(id INT, name VARCHAR, phone VARCHAR) AS $$
+RETURNS TABLE(name VARCHAR, phone VARCHAR) AS $$
 BEGIN
     RETURN QUERY
-    SELECT * FROM contacts
+    SELECT c.name, c.phone
+    FROM contacts c
+    ORDER BY c.name
     LIMIT lim OFFSET off;
 END;
 $$ LANGUAGE plpgsql;
