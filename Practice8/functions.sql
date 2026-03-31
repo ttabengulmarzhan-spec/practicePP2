@@ -1,24 +1,24 @@
--- 🔍 Поиск по паттерну
-CREATE OR REPLACE FUNCTION search_contacts(p TEXT)
-RETURNS TABLE(name VARCHAR, phone VARCHAR) AS $$
+-- 1. Поиск по шаблону
+CREATE OR REPLACE FUNCTION search_contacts(p_pattern TEXT)
+RETURNS TABLE(id INT, name VARCHAR, phone VARCHAR) AS $$
 BEGIN
     RETURN QUERY
-    SELECT c.name, c.phone
-    FROM contacts c
-    WHERE c.name ILIKE '%' || p || '%'
-       OR c.phone ILIKE '%' || p || '%';
+    SELECT p.id, p.name, p.phone
+    FROM phonebook p
+    WHERE p.name ILIKE '%' || p_pattern || '%'
+       OR p.phone ILIKE '%' || p_pattern || '%';
 END;
 $$ LANGUAGE plpgsql;
 
 
--- 📄 Пагинация
-CREATE OR REPLACE FUNCTION get_contacts_paginated(lim INT, off INT)
-RETURNS TABLE(name VARCHAR, phone VARCHAR) AS $$
+-- 4. Пагинация
+CREATE OR REPLACE FUNCTION get_contacts_paginated(p_limit INT, p_offset INT)
+RETURNS TABLE(id INT, name VARCHAR, phone VARCHAR) AS $$
 BEGIN
     RETURN QUERY
-    SELECT c.name, c.phone
-    FROM contacts c
-    ORDER BY c.name
-    LIMIT lim OFFSET off;
+    SELECT p.id, p.name, p.phone
+    FROM phonebook p
+    ORDER BY p.id
+    LIMIT p_limit OFFSET p_offset;
 END;
 $$ LANGUAGE plpgsql;

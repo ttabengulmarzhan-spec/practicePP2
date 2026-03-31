@@ -1,55 +1,44 @@
--- ➕ Insert или Update
-CREATE OR REPLACE PROCEDURE insert_or_update_user(p_name TEXT, p_phone TEXT)
+-- 2. Upsert
+CREATE OR REPLACE PROCEDURE upsert_contact(p_name VARCHAR, p_phone VARCHAR)
+LANGUAGE plpgsql
 AS $$
 BEGIN
-    IF EXISTS (SELECT 1 FROM contacts WHERE name = p_name) THEN
-        UPDATE contacts SET phone = p_phone WHERE name = p_name;
+    IF EXISTS (SELECT 1 FROM phonebook WHERE name = p_name) THEN
+        UPDATE phonebook
+        SET phone = p_phone
+        WHERE name = p_name;
     ELSE
-        INSERT INTO contacts(name, phone)
+        INSERT INTO phonebook(name, phone)
         VALUES (p_name, p_phone);
     END IF;
 END;
-$$ LANGUAGE plpgsql;
+$$;
 
 
--- 📦 Массовая вставка
-CREATE OR REPLACE PROCEDURE insert_many_users(
-    names TEXT[],
-    phones TEXT[],
-    OUT invalid_data TEXT[]
+-- 3. Массовая вставка + валидация
+CREATE OR REPLACE PROCEDURE bulk_insert_contacts(
+    p_names TEXT[],
+    p_phones TEXT[]
 )
+LANGUAGE plpgsql
 AS $$
 DECLARE
     i INT;
-    temp_invalid TEXT[] := '{}';
 BEGIN
-    FOR i IN 1..array_length(names, 1) LOOP
-        
-        IF phones[i] ~ '^[0-9]+$' THEN
-            
-            IF EXISTS (SELECT 1 FROM contacts WHERE name = names[i]) THEN
-                UPDATE contacts SET phone = phones[i] WHERE name = names[i];
-            ELSE
-                INSERT INTO contacts(name, phone)
-                VALUES (names[i], phones[i]);
-            END IF;
-        
-        ELSE
-            temp_invalid := array_append(temp_invalid, names[i] || ':' || phones[i]);
-        END IF;
-
+    FOR i IN 1..array_length(p_names, 1) LOOP
+        INSERT INTO phonebook(name, phone)
+        VALUES (p_names[i], p_phones[i]);
     END LOOP;
-
-    invalid_data := temp_invalid;
 END;
-$$ LANGUAGE plpgsql;
+$$;
 
 
--- ❌ Удаление
+-- 5. Удаление
 CREATE OR REPLACE PROCEDURE delete_contact(p_value TEXT)
+LANGUAGE plpgsql
 AS $$
 BEGIN
-    DELETE FROM contacts
+    DELETE FROM phonebook
     WHERE name = p_value OR phone = p_value;
 END;
-$$ LANGUAGE plpgsql;
+$$;
