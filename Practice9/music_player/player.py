@@ -2,31 +2,40 @@ import pygame
 import os
 
 class MusicPlayer:
-    def __init__(self):
-        self.base = os.path.dirname(__file__)
+    def __init__(self, music_folder):
+        self.music_folder = music_folder
+        self.playlist = self.load_tracks()
+        self.current_index = 0
+        self.is_playing = False
 
-        self.playlist = [
-            os.path.join(self.base, "music", "ILLIT  - Billyeoon Goyangi (Do the Dance).mp3"),
-            os.path.join(self.base, "music", "1|1_Do_It_Like_That_TOMORROW_X_TOGETHER_Jonas_Brothers_320.mp3"),
-            os.path.join(self.base, "music", "Lucky Girl Syndrome.mp3")
-        ]
-
-        self.current = 0
+    def load_tracks(self):
+        tracks = []
+        for file in os.listdir(self.music_folder):
+            if file.endswith(".mp3"):
+                tracks.append(os.path.join(self.music_folder, file))
+        return tracks
 
     def play(self):
-        pygame.mixer.music.load(self.playlist[self.current])
+        if not self.playlist:
+            return
+
+        pygame.mixer.music.load(self.playlist[self.current_index])
         pygame.mixer.music.play()
+        self.is_playing = True
 
     def stop(self):
         pygame.mixer.music.stop()
+        self.is_playing = False
 
-    def next(self):
-        self.current = (self.current + 1) % len(self.playlist)
+    def next_track(self):
+        self.current_index = (self.current_index + 1) % len(self.playlist)
         self.play()
 
-    def prev(self):
-        self.current = (self.current - 1) % len(self.playlist)
+    def prev_track(self):
+        self.current_index = (self.current_index - 1) % len(self.playlist)
         self.play()
 
-    def get_current_track(self):
-        return self.playlist[self.current]
+    def get_current_track_name(self):
+        if not self.playlist:
+            return "No tracks"
+        return os.path.basename(self.playlist[self.current_index])
