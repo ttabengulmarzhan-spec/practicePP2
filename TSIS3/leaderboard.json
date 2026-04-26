@@ -1,0 +1,59 @@
+[
+  {
+    "quit": false,
+    "status": "game_over",
+    "username": "sghs",
+    "score": 1406,
+    "coins": 57,
+    "distance": 551,
+    "date": "2026-04-26 20:40:25"
+  },
+  {
+    "quit": false,
+    "status": "game_over",
+    "username": "Nuray",
+    "score": 367,
+    "coins": 16,
+    "distance": 127,
+    "date": "2026-04-26 20:20:43"
+  },
+  {
+    "quit": false,
+    "status": "game_over",
+    "username": "hd",
+    "score": 294,
+    "coins": 11,
+    "distance": 129,
+    "date": "2026-04-26 20:35:22"
+  },
+  {
+    "quit": false,
+    "status": "game_over",
+    "username": "Nuray",
+    "score": 164,
+    "coins": 7,
+    "distance": 59,
+    "date": "2026-04-26 20:20:32"
+  },
+  {
+    "quit": false,
+    "status": "game_over",
+    "username": "Nuray",
+    "score": 104,
+    "coins": 3,
+    "distance": 59,
+    "date": "2026-04-26 20:20:59"
+  },
+  {
+    "quit": false,
+    "status": "game_over",
+    "username": "sghs",
+    "score": 69,
+    "coins": 1,
+    "distance": 54,
+    "date": "2026-04-26 20:40:32"
+  },
+  {
+    "quit": true
+  }
+]

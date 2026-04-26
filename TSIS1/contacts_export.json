@@ -1,0 +1,100 @@
+[
+  {
+    "name": "Aigerim",
+    "email": "aigerim@mail.ru",
+    "birthday": "2008-04-14",
+    "date_added": "2026-04-26 20:08:10.256873",
+    "group": "Work",
+    "phones": [
+      {
+        "phone": "77056429908",
+        "type": "mobile"
+      },
+      {
+        "phone": "77020000000",
+        "type": "home"
+      }
+    ]
+  },
+  {
+    "name": "Gulmarzhan",
+    "email": "gulmar@example.com",
+    "birthday": "2008-03-25",
+    "date_added": "2026-04-26 20:08:10.256873",
+    "group": "Family",
+    "phones": [
+      {
+        "phone": "77779887391",
+        "type": "mobile"
+      },
+      {
+        "phone": "77010000001",
+        "type": "work"
+      }
+    ]
+  },
+  {
+    "name": "Nuray",
+    "email": "nuray@gmail.com",
+    "birthday": "2008-05-22",
+    "date_added": "2026-04-26 20:06:47.230828",
+    "group": "Friend",
+    "phones": [
+      {
+        "phone": "77026547867",
+        "type": "mobile"
+      }
+    ]
+  },
+  {
+    "name": "Said",
+    "email": "ger@gmail.com",
+    "birthday": "2010-03-29",
+    "date_added": "2026-04-26 20:11:25.988544",
+    "group": "Family",
+    "phones": [
+      {
+        "phone": "+8837643893",
+        "type": "home"
+      }
+    ]
+  },
+  {
+    "name": "Saida",
+    "email": "ismail@email.ru",
+    "birthday": "2009-07-18",
+    "date_added": "2026-04-26 20:08:10.256873",
+    "group": "Work",
+    "phones": [
+      {
+        "phone": "77956429908",
+        "type": "mobile"
+      },
+      {
+        "phone": "77020090001",
+        "type": "home"
+      },
+      {
+        "phone": "+838746389",
+        "type": "work"
+      }
+    ]
+  },
+  {
+    "name": "Suirik",
+    "email": "slay@gmail.com",
+    "birthday": "2008-01-14",
+    "date_added": "2026-04-26 20:08:10.256873",
+    "group": "Friend",
+    "phones": [
+      {
+        "phone": "77059429608",
+        "type": "mobile"
+      },
+      {
+        "phone": "77020000700",
+        "type": "home"
+      }
+    ]
+  }
+]
