@@ -20,7 +20,7 @@
     "name": "Gulmarzhan",
     "email": "gulmar@example.com",
     "birthday": "2008-03-25",
-    "date_added": "2026-04-26 20:08:10.256873",
+    "date_added": "2026-04-26 20:17:45.679147",
     "group": "Family",
     "phones": [
       {
@@ -43,6 +43,10 @@
       {
         "phone": "77026547867",
         "type": "mobile"
+      },
+      {
+        "phone": "+0983478",
+        "type": "work"
       }
     ]
   },
@@ -50,7 +54,7 @@
     "name": "Said",
     "email": "ger@gmail.com",
     "birthday": "2010-03-29",
-    "date_added": "2026-04-26 20:11:25.988544",
+    "date_added": "2026-04-26 20:17:45.679147",
     "group": "Family",
     "phones": [
       {
@@ -79,6 +83,14 @@
         "type": "work"
       }
     ]
+  },
+  {
+    "name": "Simba",
+    "email": "a@gmail.com",
+    "birthday": null,
+    "date_added": "2026-04-27 19:23:08.301259",
+    "group": "Other",
+    "phones": []
   },
   {
     "name": "Suirik",

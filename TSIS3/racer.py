@@ -86,32 +86,32 @@ class RacerGame:
         self.car_color = settings["car_color"]
 
         self.enemy=img(
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/Enemyy.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/Enemyy.png",
 (55,88)
 )
 
         self.coin=img(
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/coinn.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/coinn.png",
 (34,34)
 )
 
         self.shield_img=img(
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/shield.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/shield.png",
 (36,36)
 )
 
         self.heal_img=img(
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/heal.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/heal.png",
 (36,36)
 )
 
         self.boost_img=img(
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/boost.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/boost.png",
 (36,36)
 )
 
         self.oil_img=img(
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/oil.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/oil.png",
 (42,28)
 )
 

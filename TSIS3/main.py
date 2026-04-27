@@ -51,9 +51,9 @@ MUSIC_END
 )
 
 MUSIC=[
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/Cherish (My Love) (Instrumental) - ILLIT (128).mp3",
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/Billyeoon_Goyangi_Do_the_Dance_Instrumental_ILLIT_128.mp3",
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/NOT CUTE ANYMORE (Instrumental) - ILLIT (128).mp3"
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/Cherish (My Love) (Instrumental) - ILLIT (128).mp3",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/Billyeoon_Goyangi_Do_the_Dance_Instrumental_ILLIT_128.mp3",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/NOT CUTE ANYMORE (Instrumental) - ILLIT (128).mp3"
 ]
 
 
@@ -90,12 +90,12 @@ def music_state(settings):
 def ensure_assets():
 
     required=[
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/Enemyy.png",
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/coinn.png",
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/shield.png",
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/heal.png",
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/boost.png",
-"/Users/gulmarzantaben/Desktop/TSIS/TSIS3/assets/oil.png"
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/Enemyy.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/coinn.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/shield.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/heal.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/boost.png",
+"/Users/gulmarzantaben/Desktop/practicePP2/TSIS3/assets/oil.png"
 ]
 
     for f in required:

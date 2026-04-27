@@ -258,7 +258,7 @@ def browse_with_filters():
 
 
 def export_to_json():
-    filename = input("Export file (default contacts_export.json): ").strip() or "contacts_export.json"
+    filename = input("Export file (default contacts_export.json): ").strip() or "/Users/gulmarzantaben/Desktop/practicePP2/TSIS1/contacts_export.json"
 
     conn = get_connection()
     cur = conn.cursor()
@@ -301,7 +301,7 @@ def export_to_json():
 
 
 def import_from_json():
-    filename = input("Import file (default contacts_export.json): ").strip() or "contacts_export.json"
+    filename = input("Import file (default contacts_export.json): ").strip() or "/Users/gulmarzantaben/Desktop/practicePP2/TSIS1/contacts_export.json"
 
     with open(filename, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -364,7 +364,7 @@ def parse_phones_field(phones_field: str):
 
 
 def import_from_csv():
-    filename = input("CSV file (default contacts.csv): ").strip() or "contacts.csv"
+    filename = input("CSV file (default contacts.csv): ").strip() or "/Users/gulmarzantaben/Desktop/practicePP2/TSIS1/contacts.csv"
 
     conn = get_connection()
     cur = conn.cursor()
@@ -457,8 +457,8 @@ def run_sql_file(path):
 
 
 def init_db():
-    run_sql_file("schema.sql")
-    run_sql_file("procedures.sql")
+    run_sql_file("/Users/gulmarzantaben/Desktop/practicePP2/TSIS1/schema.sql")
+    run_sql_file("/Users/gulmarzantaben/Desktop/practicePP2/TSIS1/procedures.sql")
     print("Database initialized.")
 
 def menu():
