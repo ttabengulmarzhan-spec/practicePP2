@@ -8,7 +8,7 @@ from game import SnakeGame, WIDTH, HEIGHT
 
 
 SETTINGS_FILE = "settings.json"
-MUSIC_FILE = "/Users/gulmarzantaben/Desktop/TSIS/TSIS4/assets/ILLIT  - Almond Chocolate.mp3"
+MUSIC_FILE = "/Users/gulmarzantaben/Desktop/PracticePP2/TSIS4/assets/ILLIT  - Almond Chocolate.mp3"
 
 
 pygame.init()
@@ -183,9 +183,9 @@ def main():
             pygame.display.flip()
 
         elif state == "settings":
+            
             grid_btn = Button(190, 140, 220, 45, f"Grid: {'ON' if settings['grid'] else 'OFF'}")
             sound_btn = Button(190, 195, 220, 45, f"Sound: {'ON' if settings['sound'] else 'OFF'}")
-            color_btn = Button(190, 250, 220, 45, "Snake Color")
             save_back_btn = Button(190, 320, 220, 45, "Save & Back")
 
             for event in pygame.event.get():
@@ -200,61 +200,35 @@ def main():
                     settings["sound"] = not settings["sound"]
                     apply_music(settings)
 
-                elif color_btn.clicked(event):
-                    color_idx = (color_idx + 1) % len(color_presets)
-                    settings["snake_color"] = color_presets[color_idx]
-
                 elif save_back_btn.clicked(event):
                     save_settings(settings)
                     apply_music(settings)
                     state = "menu"
 
-            screen.fill((42, 28, 28))
-            draw_center("SETTINGS", 70, fnt=title_font)
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    color_rect = pygame.Rect(190, 250, 220, 45)
+                    if color_rect.collidepoint(event.pos):
+                        color_idx = (color_idx + 1) % len(color_presets)
+                        settings["snake_color"] = color_presets[color_idx]
 
-            color_preview = pygame.Rect(270, 257, 28, 28)
-            pygame.draw.rect(screen, tuple(settings["snake_color"]), color_preview)
+            screen.fill((42, 28, 28))
+
+            draw_center("SETTINGS", 70, fnt=title_font)
 
             grid_btn.draw(screen)
             sound_btn.draw(screen)
-            color_btn.draw(screen)
             save_back_btn.draw(screen)
-            pygame.display.flip()
 
-        elif state == "game_over":
-            retry_btn = Button(190, 260, 220, 45, "Retry")
-            menu_btn = Button(190, 315, 220, 45, "Main Menu")
+            snake_color = tuple(settings["snake_color"])
 
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
+            color_rect = pygame.Rect(190, 250, 220, 45)
 
-                if retry_btn.clicked(event):
-                    if username.strip():
-                        pb = get_personal_best(username.strip())
-                        game = SnakeGame(screen, settings, username.strip(), pb)
-                        result = game.run()
-                        if result.get("quit"):
-                            pygame.quit()
-                            sys.exit()
-                        save_game_session(username.strip(), result["score"], result["level"])
-                        last_result = result
-                        last_pb = max(pb, result["score"])
+            pygame.draw.rect(screen, snake_color, color_rect, border_radius=8)
+            pygame.draw.rect(screen, (255, 255, 255), color_rect, 2, border_radius=8)
 
-                elif menu_btn.clicked(event):
-                    state = "menu"
+            text = font.render("Snake Color", True, (0, 0, 0))
+            screen.blit(text, text.get_rect(center=color_rect.center))
 
-            screen.fill((55, 25, 25))
-            draw_center("GAME OVER", 80, fnt=title_font)
-
-            if last_result:
-                draw_center(f"Score: {last_result['score']}", 150)
-                draw_center(f"Level Reached: {last_result['level']}", 185)
-                draw_center(f"Personal Best: {last_pb}", 220)
-
-            retry_btn.draw(screen)
-            menu_btn.draw(screen)
             pygame.display.flip()
 
 
