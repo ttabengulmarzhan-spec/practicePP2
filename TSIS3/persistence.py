@@ -8,7 +8,6 @@ SETTINGS_DEFAULT = {
     "car_color": "blue"        # red | blue | green | yellow
 }
 
-
 def _read_json(path, default_value):
     if not os.path.exists(path):
         return default_value
