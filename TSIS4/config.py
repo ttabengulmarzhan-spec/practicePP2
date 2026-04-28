@@ -5,3 +5,4 @@ DB_CONFIG = {
     "password": "",
     "port": "5432",
 }
+
