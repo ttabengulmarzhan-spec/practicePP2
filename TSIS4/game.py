@@ -30,27 +30,21 @@ class SnakeGame:
         self.clock = pygame.time.Clock()
         self.font = pygame.font.SysFont("Verdana", 18)
 
-        # snake
         self.snake = [(100, 100), (80, 100), (60, 100)]
         self.direction = (CELL_SIZE, 0)
 
-        # game stats
         self.score = 0
         self.level = 1
         self.foods_eaten = 0
 
-        # speed
         self.base_speed = 7
         self.speed_effect = None
         self.speed_effect_end = 0
 
-        # shield
         self.shield = False
 
-        # obstacles
         self.obstacles = set()
 
-        # items
         self.food = None
         self.poison = None
         self.powerup = None
@@ -60,7 +54,6 @@ class SnakeGame:
 
         self.running = True
 
-    # ---------------- SPEED ----------------
     def current_speed(self):
         speed = self.base_speed + (self.level - 1) * 2
 
@@ -73,7 +66,6 @@ class SnakeGame:
 
         return speed
 
-    # ---------------- GRID HELPERS ----------------
     def px_to_grid(self, x, y):
         return x // CELL_SIZE, y // CELL_SIZE
 
@@ -88,7 +80,6 @@ class SnakeGame:
             if (x, y) not in self.obstacles:
                 return x, y
 
-    # ---------------- FOOD ----------------
     def spawn_food(self):
         gx, gy = self.random_cell()
         x, y = self.grid_to_px(gx, gy)
@@ -99,31 +90,27 @@ class SnakeGame:
         x, y = self.grid_to_px(gx, gy)
         self.poison = (x, y)
 
-    # ---------------- MOVEMENT ----------------
     def move(self):
         hx, hy = self.snake[0]
         dx, dy = self.direction
 
         new_head = (hx + dx, hy + dy)
 
-        # collision wall
         if not (0 <= new_head[0] < WIDTH and 0 <= new_head[1] < HEIGHT):
             self.running = False
             return
 
-        # self collision
+
         if new_head in self.snake:
             self.running = False
             return
 
-        # obstacle
         if self.px_to_grid(*new_head) in self.obstacles:
             self.running = False
             return
 
         self.snake.insert(0, new_head)
 
-        # FOOD
         if new_head == (self.food[0], self.food[1]):
             self.score += self.food[2]
             self.foods_eaten += 1
@@ -131,7 +118,6 @@ class SnakeGame:
         else:
             self.snake.pop()
 
-        # POISON
         if new_head == self.poison:
             if len(self.snake) > 2:
                 self.snake.pop()
@@ -140,11 +126,9 @@ class SnakeGame:
                 self.running = False
             self.spawn_poison()
 
-        # LEVEL UP
         if self.foods_eaten > 0 and self.foods_eaten % 3 == 0:
             self.level += 1
 
-    # ---------------- DRAW ----------------
     def draw_grid(self):
         if not self.settings.get("grid", True):
             return
@@ -159,20 +143,17 @@ class SnakeGame:
         self.screen.fill(WHITE)
         self.draw_grid()
 
-        # obstacles
         for gx, gy in self.obstacles:
             x, y = self.grid_to_px(gx, gy)
             pygame.draw.rect(self.screen, BLACK, (x, y, CELL_SIZE, CELL_SIZE))
 
-        # food
         fx, fy, val = self.food
         pygame.draw.rect(self.screen, RED, (fx, fy, CELL_SIZE, CELL_SIZE))
 
-        # poison
         px, py = self.poison
         pygame.draw.rect(self.screen, DARK_RED, (px, py, CELL_SIZE, CELL_SIZE))
 
-        # snake color
+
         base = self.settings.get("snake_color", [0, 200, 0])
         color = tuple(base)
 
@@ -186,7 +167,6 @@ class SnakeGame:
             c = head_color if i == 0 else color
             pygame.draw.rect(self.screen, c, (x, y, CELL_SIZE, CELL_SIZE))
 
-        # HUD
         text = self.font.render(
             f"{self.username} | Score: {self.score} | Level: {self.level} | PB: {self.personal_best}",
             True,
@@ -196,7 +176,6 @@ class SnakeGame:
 
         pygame.display.update()
 
-    # ---------------- RUN ----------------
     def run(self):
         while self.running:
             self.clock.tick(self.current_speed())
