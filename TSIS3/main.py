@@ -17,7 +17,7 @@ screen=pygame.display.set_mode(
 )
 
 pygame.display.set_caption(
-"ILLIT Sky Racer"
+"Racer"
 )
 
 clock=pygame.time.Clock()
@@ -174,7 +174,7 @@ def main():
 
             draw_center_text(
 screen,
-"ILLIT SKY RACER",
+"RACER",
 TITLE,
 DEEP,
 120
@@ -182,7 +182,7 @@ DEEP,
 
             draw_center_text(
 screen,
-"blue dreamy arcade edition",
+"blue",
 SMALL,
 DEEP,
 170
