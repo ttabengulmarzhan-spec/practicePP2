@@ -6,7 +6,6 @@ from connect import get_connection
 
 VALID_PHONE_TYPES = {"home", "work", "mobile"}
 
-
 def normalize_phone_type(value: str) -> str:
     value = (value or "").strip().lower()
     if value not in VALID_PHONE_TYPES:
