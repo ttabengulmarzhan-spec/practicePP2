@@ -2,6 +2,6 @@ DB_CONFIG = {
     "host": "localhost",
     "database": "phonebook_db",
     "user": "gulmarzantaben",
-    "password": "",
+    "password": "200092",
     "port": "5432"
 }
