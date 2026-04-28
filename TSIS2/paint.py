@@ -2,7 +2,6 @@ import pygame
 from datetime import datetime
 from tools import draw_shape, flood_fill
 
-
 WIDTH, HEIGHT = 1000, 700
 TOOLBAR_H = 90
 FPS = 60
