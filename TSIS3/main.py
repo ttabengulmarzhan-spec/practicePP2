@@ -441,6 +441,5 @@ f"Distance {result['distance']}"
             menu.draw(screen,FONT)
             pygame.display.flip()
 
-
 if __name__=="__main__":
     main()
