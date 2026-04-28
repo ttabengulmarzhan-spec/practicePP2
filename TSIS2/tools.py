@@ -2,7 +2,6 @@ import math
 from collections import deque
 import pygame
 
-
 def draw_shape(surface, tool, start, end, color, width):
     x1, y1 = start
     x2, y2 = end
