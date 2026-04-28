@@ -485,3 +485,4 @@ f"Power {power}"
 "%Y-%m-%d %H:%M:%S"
 )
 }
+
