@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS phones (
     UNIQUE (contact_id, phone)
 );
 
+
 INSERT INTO groups(name)
 VALUES ('Family'), ('Work'), ('Friend'), ('Other')
 ON CONFLICT (name) DO NOTHING;

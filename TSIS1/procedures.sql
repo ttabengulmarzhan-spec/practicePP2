@@ -1,4 +1,4 @@
--- 1) Add new phone to existing contact
+-- Add new phone to existing contact
 CREATE OR REPLACE PROCEDURE add_phone(
     p_contact_name VARCHAR,
     p_phone        VARCHAR,
@@ -23,7 +23,7 @@ BEGIN
 END;
 $$;
 
--- 2) Move contact to group (create group if needed)
+-- Move contact to group (create group if needed)
 CREATE OR REPLACE PROCEDURE move_to_group(
     p_contact_name VARCHAR,
     p_group_name   VARCHAR
@@ -56,7 +56,7 @@ BEGIN
 END;
 $$;
 
--- 3) Extended search by name/email/any phone
+-- Extended search by name/email/any phone
 CREATE OR REPLACE FUNCTION search_contacts(p_query TEXT)
 RETURNS TABLE(
     contact_id  INT,
