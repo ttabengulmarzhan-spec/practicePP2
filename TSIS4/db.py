@@ -103,3 +103,4 @@ def get_top10():
     cur.close()
     conn.close()
     return rows
+
